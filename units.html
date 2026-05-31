@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unités — Power Quest</title>
+  <meta name="description" content="Toutes les unités de Power Quest : statistiques par niveau (PV, dégâts, portée, prix) et compétences spéciales." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="units" class="antialiased">
+  <template id="doc">
+    <p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Le jeu</p>
+    <h1>Unités</h1>
+    <p>Power Quest compte <strong>10 unités productibles</strong> (7 terrestres, 3 maritimes) plus le <strong>Gardien</strong> défensif. Chaque unité existe en 3 paliers (Niv. I / II / III) : le palier produit dépend du <a href="levels.html">niveau du camp ou du port</a>.</p>
+
+    <h2>Comment lire les statistiques</h2>
+    <ul>
+      <li><strong>PV</strong> — points de vie.</li>
+      <li><strong>Dégâts</strong> — dégâts par attaque.</li>
+      <li><strong>Portée</strong> — distance d'attaque (en pixels). Une grande portée = unité à distance.</li>
+      <li><strong>Vitesse</strong> — vitesse de déplacement.</li>
+      <li><strong>Prod.</strong> — temps de production de base (réduit dans les camps de niveau supérieur).</li>
+      <li><strong>Prix</strong> — coût en or.</li>
+    </ul>
+
+    <h2>Unités terrestres</h2>
+    <p>Produites dans les camps. Sélection rapide avec les touches <kbd>1</kbd> à <kbd>7</kbd>.</p>
+    <div id="units-land" class="mt-2 space-y-5"></div>
+
+    <h2>Unités maritimes</h2>
+    <p>Produites dans les ports. Sélection rapide avec les touches <kbd>8</kbd>, <kbd>9</kbd> et <kbd>0</kbd>. Indispensables pour atteindre les îles de la carte désertique.</p>
+    <div id="units-sea" class="mt-2 space-y-5"></div>
+
+    <h2>Défense</h2>
+    <p>Le Gardien n'est pas productible : il apparaît automatiquement pour défendre chaque site. Le vaincre capture le camp ou le port.</p>
+    <div id="units-def" class="mt-2 space-y-5"></div>
+
+    <div class="mt-8 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
+      <p class="!mt-0 text-sm text-slate-300"><strong>Bon à savoir :</strong> améliorer un camp ne débloque pas de nouvelle unité — toutes sont disponibles dès le niveau 1. L'amélioration fait passer chaque unité au palier supérieur (stats plus élevées) et accélère la production.</p>
+    </div>
+  </template>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+  <script src="assets/pages.js"></script>
+</body>
+</html>

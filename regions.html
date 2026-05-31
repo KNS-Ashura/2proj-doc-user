@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Système de régions — Power Quest</title>
+  <meta name="description" content="Le système de régions de Power Quest : contrôler une région entière pour des bonus d'or, masses terrestres séparées et surbrillance des régions." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="regions" class="antialiased">
+  <template id="doc">
+    <p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Le jeu</p>
+    <h1>Système de régions</h1>
+    <p>Chaque carte est découpée en <strong>3 régions</strong>. Les sites (camps et ports) sont répartis entre ces régions. Contrôler une région <strong>dans son intégralité</strong> débloque de puissants bonus économiques — c'est l'un des leviers stratégiques majeurs du jeu.</p>
+
+    <h2>Contrôle d'une région</h2>
+    <p>Une région est « contrôlée » lorsque vous possédez <strong>tous ses sites</strong>. Vous obtenez alors :</p>
+    <div class="mt-2 grid gap-4 sm:grid-cols-2">
+      <div class="pq-card p-5">
+        <div class="font-display text-3xl font-bold text-emerald-300">+2 or/s</div>
+        <p class="!mt-1 text-sm">par site de la région, en plus du revenu normal, tant que vous contrôlez toute la région.</p>
+      </div>
+      <div class="pq-card p-5">
+        <div class="font-display text-3xl font-bold text-amber-300">+60 or</div>
+        <p class="!mt-1 text-sm">prime unique versée au moment où vous prenez le contrôle complet d'une région.</p>
+      </div>
+    </div>
+    <p>Exemple : contrôler une région de 8 sites ajoute <strong>+16 or/s</strong> de bonus — de quoi financer une montée en niveau ou une vague d'unités d'élite.</p>
+
+    <h2>Masses terrestres séparées</h2>
+    <p>Certaines régions contiennent des <strong>îles</strong> non reliées à pied au continent. Sur la <strong>carte désertique (Carte 2)</strong>, la région Sud comporte ainsi des sites isolés (camp12, camp13, port6).</p>
+    <div class="mt-2 rounded-xl border border-amber-400/20 bg-amber-400/5 p-4">
+      <p class="!mt-0 text-sm text-amber-100/90"><strong>Conséquence :</strong> pour capturer ces sites insulaires, vous devez embarquer vos unités terrestres dans un <a href="units.html#unit-water_transport">Transport maritime</a> depuis un port, traverser, puis débarquer. Impossible de les atteindre en marchant.</p>
+    </div>
+
+    <h2>Visualiser les régions</h2>
+    <p>En partie, des boutons <strong>Région 1 / 2 / 3</strong> permettent de mettre une région en surbrillance sur la carte et la mini-carte. Cliquez à nouveau pour masquer. Pratique pour repérer les sites manquants avant de tenter le contrôle complet.</p>
+
+    <h2>Stratégie</h2>
+    <ul>
+      <li><strong>Ciblez la plus petite région</strong> en premier : moins de sites = contrôle complet plus rapide = bonus plus tôt.</li>
+      <li><strong>Verrouillez les frontières</strong> : une fois une région prise, défendez ses sites de bordure, car perdre un seul site annule le bonus.</li>
+      <li><strong>Anticipez l'eau</strong> : sur la carte désertique, prévoyez un port et un transport pour les îles de la région Sud.</li>
+      <li>Le détail des régions de chaque carte se trouve sur la page <a href="maps.html">Cartes</a>.</li>
+    </ul>
+  </template>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+  <script src="assets/pages.js"></script>
+</body>
+</html>

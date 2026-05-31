@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commandes — Power Quest</title>
+  <meta name="description" content="Toutes les commandes clavier et souris de Power Quest : caméra, sélection, ordres, sorts et production." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="commands" class="antialiased">
+  <template id="doc">
+    <p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Le jeu</p>
+    <h1>Commandes</h1>
+    <p>Power Quest se joue à la <strong>souris et au clavier</strong>. Sélectionnez vos unités, donnez des ordres, déplacez la caméra et déclenchez des sorts. Une commande tactile (joystick virtuel) est disponible sur mobile et navigateur tactile.</p>
+
+    <h2>Caméra</h2>
+    <table>
+      <thead><tr><th>Entrée</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Z</kbd> <kbd>W</kbd> <kbd>↑</kbd></td><td>Déplacer la caméra vers le haut</td></tr>
+        <tr><td><kbd>S</kbd> <kbd>↓</kbd></td><td>Déplacer la caméra vers le bas</td></tr>
+        <tr><td><kbd>Q</kbd> <kbd>←</kbd></td><td>Déplacer la caméra vers la gauche</td></tr>
+        <tr><td><kbd>D</kbd> <kbd>→</kbd></td><td>Déplacer la caméra vers la droite</td></tr>
+        <tr><td>Molette ↑ / ↓</td><td>Zoom avant / arrière (entre ×0.5 et ×2.0)</td></tr>
+        <tr><td>Clic molette + glisser</td><td>Déplacer librement la caméra</td></tr>
+        <tr><td>Joystick virtuel (mobile)</td><td>Déplacement de la caméra, en bas à gauche de l'écran tactile</td></tr>
+      </tbody>
+    </table>
+    <p>Au début d'une partie, la caméra se centre automatiquement sur votre camp terrestre principal.</p>
+
+    <h2>Sélection & ordres</h2>
+    <table>
+      <thead><tr><th>Entrée</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Clic gauche + glisser</td><td>Tracer une boîte de sélection — sélectionne vos unités à l'intérieur</td></tr>
+        <tr><td>Clic gauche (sur un bâtiment)</td><td>Sélectionner un de vos camps / ports</td></tr>
+        <tr><td>Clic droit (sur le sol)</td><td>Déplacer les unités sélectionnées (en formation)</td></tr>
+        <tr><td>Clic droit (sur un ennemi)</td><td>Attaquer la cible ennemie</td></tr>
+        <tr><td><kbd>A</kbd></td><td>Sélectionner <strong>toute</strong> votre armée sur la carte</td></tr>
+        <tr><td><kbd>E</kbd></td><td>Lancer le sort des unités sélectionnées qui en possèdent un</td></tr>
+        <tr><td><kbd>Échap</kbd></td><td>Annuler la phase de marquage d'un transport maritime</td></tr>
+      </tbody>
+    </table>
+    <p>La boîte de sélection ne capte que <strong>vos</strong> unités : les unités ennemies et neutres ne peuvent pas être sélectionnées.</p>
+
+    <h2>Sélection rapide par type</h2>
+    <p>Chaque touche sélectionne d'un coup toutes vos unités d'un type donné. <span class="text-slate-300">Touches 1–7 : unités terrestres • 8, 9, 0 : unités maritimes.</span></p>
+    <table>
+      <thead><tr><th>Touche</th><th>Type d'unité</th><th>Touche</th><th>Type d'unité</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>1</kbd></td><td>Infanterie</td><td><kbd>6</kbd></td><td>Anti-armure</td></tr>
+        <tr><td><kbd>2</kbd></td><td>Archer</td><td><kbd>7</kbd></td><td>Mortier</td></tr>
+        <tr><td><kbd>3</kbd></td><td>Lourd</td><td><kbd>8</kbd></td><td>Transport maritime</td></tr>
+        <tr><td><kbd>4</kbd></td><td>Soutien</td><td><kbd>9</kbd></td><td>Char maritime</td></tr>
+        <tr><td><kbd>5</kbd></td><td>Soigneur</td><td><kbd>0</kbd></td><td>Archer maritime</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Sorts & compétences</h2>
+    <p>Appuyez sur <kbd>E</kbd> (ou utilisez les boutons du panneau de sorts) pour déclencher la compétence des unités sélectionnées :</p>
+    <ul>
+      <li><strong>Soigneur</strong> — rend invulnérables les alliés proches pendant quelques secondes.</li>
+      <li><strong>Soutien</strong> — booste vitesse, dégâts et cadence des alliés autour de lui.</li>
+      <li><strong>Mortier</strong> — frappe d'élite sur les ennemis les plus proches.</li>
+      <li><strong>Anti-armure</strong> — marque l'ennemi le plus résistant pour qu'il subisse des dégâts doublés.</li>
+      <li><strong>Transport maritime</strong> — embarque puis débarque les unités terrestres (via le bouton dédié).</li>
+    </ul>
+    <p>Détail complet des effets et durées sur la page <a href="units.html">Unités</a>.</p>
+
+    <h2>Production (souris)</h2>
+    <p>Cliquez sur l'un de vos camps ou ports pour ouvrir son panneau de production, puis cliquez sur l'unité à fabriquer. La production n'a <strong>pas</strong> de raccourci clavier.</p>
+    <ul>
+      <li><strong>Camp terrestre</strong> — 7 unités : Infanterie, Archer, Lourd, Soutien, Soigneur, Anti-armure, Mortier.</li>
+      <li><strong>Port</strong> — 3 unités : Transport, Char et Archer maritimes.</li>
+      <li><strong>Bouton Améliorer</strong> — fait passer le site au niveau supérieur (voir <a href="levels.html">Niveaux</a>).</li>
+    </ul>
+
+    <h2>Mini-carte & régions</h2>
+    <table>
+      <thead><tr><th>Entrée</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Clic gauche sur la mini-carte</td><td>Déplacer instantanément la caméra à cet endroit</td></tr>
+        <tr><td>Boutons Région 1 / 2 / 3</td><td>Mettre en surbrillance une région sur la carte (re-cliquer pour masquer)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="mt-6 rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-4">
+      <p class="!mt-0 text-sm text-cyan-100/90"><strong>Astuce :</strong> regroupez Lourds en première ligne, Archers et Mortiers derrière, puis un Soigneur et un Soutien au centre. Une simple touche (<kbd>3</kbd>, <kbd>2</kbd>…) permet de re-sélectionner instantanément un type pour micro-gérer le combat.</p>
+    </div>
+  </template>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+  <script src="assets/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartes — Power Quest</title>
+  <meta name="description" content="Les 3 cartes de Power Quest (Terres Mortes, Terres Désertiques, Caverne Cristalline), leurs régions et les niveaux de difficulté de l'IA." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="maps" class="antialiased">
+  <template id="doc">
+    <p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Le jeu</p>
+    <h1>Cartes</h1>
+    <p>Power Quest propose <strong>3 cartes</strong>, chacune avec son ambiance, ses 3 régions, ses 13 camps et ses 7 ports. En solo, vous choisissez la carte ; en ligne, elle est tirée au sort parmi les trois.</p>
+
+    <div id="maps-grid" class="mt-4 grid gap-5 sm:grid-cols-2"></div>
+
+    <h2>Choisir une partie solo</h2>
+    <ol>
+      <li>Depuis le menu (le grand livre), ouvrez l'onglet <strong>Solo vs IA</strong>.</li>
+      <li>Utilisez les flèches <kbd>←</kbd> <kbd>→</kbd> pour faire défiler les 3 cartes.</li>
+      <li>Choisissez la <strong>difficulté de l'IA</strong> avec les flèches dédiées.</li>
+      <li>Lancez la partie : vous êtes l'équipe bleue, l'IA l'équipe rouge, les sites restants sont neutres.</li>
+    </ol>
+
+    <h2>Difficulté de l'IA (solo)</h2>
+    <table>
+      <thead><tr><th>Difficulté</th><th>Réflexion</th><th>Escouades simultanées</th><th>Vitesse de prod.</th></tr></thead>
+      <tbody>
+        <tr><td class="font-semibold text-white">Débutant</td><td>lente</td><td>1</td><td>×0.75</td></tr>
+        <tr><td class="font-semibold text-white">Intermédiaire</td><td>moyenne</td><td>2</td><td>×1.0</td></tr>
+        <tr><td class="font-semibold text-white">Expert</td><td>rapide</td><td>3</td><td>×1.5</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Débutant</strong> — compositions simples et aléatoires, peu d'améliorations.</li>
+      <li><strong>Intermédiaire</strong> — compositions équilibrées, soigneurs de camp, améliorations régulières.</li>
+      <li><strong>Expert</strong> — 5 compositions variées (siège, assaut, anti-armure…), jusqu'à 3 escouades en parallèle, améliore ses gardiens à bas PV et construit 50% plus vite.</li>
+    </ul>
+  </template>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+  <script src="assets/pages.js"></script>
+</body>
+</html>

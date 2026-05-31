@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Système de niveaux — Power Quest</title>
+  <meta name="description" content="Le système de niveaux de Power Quest : améliorer ses camps et ports, revenus, points de vie, vitesse de production et paliers d'unités." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="levels" class="antialiased">
+  <template id="doc">
+    <p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Le jeu</p>
+    <h1>Système de niveaux</h1>
+    <p>Chaque camp et chaque port peut être amélioré du <strong>niveau 1 au niveau 3</strong>. Monter en niveau augmente les revenus, les points de vie et accélère la production — et surtout, fait passer toutes vos unités au <strong>palier supérieur</strong>.</p>
+
+    <h2>Niveaux d'un site</h2>
+    <table>
+      <thead><tr><th>Niveau</th><th>Revenu / s</th><th>PV du site</th><th>Vitesse de prod.</th><th>Coût d'amélioration</th></tr></thead>
+      <tbody>
+        <tr><td class="font-semibold text-white">Niveau 1</td><td>2 or</td><td>500</td><td>×1.00</td><td>—</td></tr>
+        <tr><td class="font-semibold text-white">Niveau 2</td><td>3 or</td><td>700</td><td>×0.85 <span class="text-emerald-300">(15% plus rapide)</span></td><td>200 or</td></tr>
+        <tr><td class="font-semibold text-white">Niveau 3</td><td>5 or</td><td>1000</td><td>×0.70 <span class="text-emerald-300">(30% plus rapide)</span></td><td>350 or</td></tr>
+      </tbody>
+    </table>
+    <p>Le temps de production réel d'une unité = <code>temps de base × vitesse de prod.</code> Exemple : une Infanterie III (base 4,0 s) sort en <strong>2,8 s</strong> dans un camp de niveau 3.</p>
+
+    <h2>Paliers d'unités</h2>
+    <p>Le niveau du site détermine le palier des unités produites — il ne <strong>débloque pas</strong> de nouvelles unités, toutes sont disponibles dès le niveau 1 :</p>
+    <ul>
+      <li><strong>Camp / Port niveau 1</strong> → unités <strong>Niv. I</strong></li>
+      <li><strong>Camp / Port niveau 2</strong> → unités <strong>Niv. II</strong></li>
+      <li><strong>Camp / Port niveau 3</strong> → unités <strong>Niv. III</strong></li>
+    </ul>
+    <p>Le Gardien du site suit le même palier (Gardien I / II / III). Comparez tous les paliers sur la page <a href="units.html">Unités</a>.</p>
+
+    <h2>Économie</h2>
+    <table>
+      <thead><tr><th>Élément</th><th>Valeur</th></tr></thead>
+      <tbody>
+        <tr><td>Or de départ</td><td>100 or</td></tr>
+        <tr><td>Revenu par site</td><td>2 / 3 / 5 or/s selon le niveau</td></tr>
+        <tr><td>Bonus de région complète</td><td>+2 or/s par site de la région</td></tr>
+        <tr><td>Bonus de capture d'une région</td><td>+60 or (une seule fois)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Stratégie d'amélioration</h2>
+    <ul>
+      <li><strong>Sécurisez d'abord vos revenus</strong> : un camp de niveau 3 rapporte 2,5× plus qu'un niveau 1.</li>
+      <li><strong>Améliorez les sites de front</strong> pour produire des unités Niv. III sur la ligne de combat.</li>
+      <li>Une amélioration <strong>vide la file de production</strong> en cours uniquement si nécessaire — planifiez vos améliorations entre deux vagues.</li>
+      <li>Comparez : améliorer un camp (200 or) ≈ le prix d'un Mortier. Pesez expansion vs montée en puissance.</li>
+    </ul>
+  </template>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+  <script src="assets/pages.js"></script>
+</body>
+</html>

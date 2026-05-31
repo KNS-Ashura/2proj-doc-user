@@ -1,0 +1,824 @@
+/* Look capture : header + livre parchemin centré + rail icônes — tailles confortables */
+
+:root {
+  --ink: #623d20;
+  --ink-muted: #7a5638;
+  --ink-light: #a5825d;
+  --parchment: #ebe2cc;
+  --parchment-mid: #e3d6b8;
+  --parchment-dark: #d4c49a;
+  --parchment-edge: #b9a67a;
+  --leather: #2a1810;
+  --leather-mid: #3d2914;
+  --pq-gold: #e8b84a;
+  --pq-gold-d: #b8862a;
+  --pq-crimson: #c43c3c;
+  --pq-crimson-d: #8b2222;
+  --pq-toxic: #5ae08a;
+  --shadow-book: 0 20px 56px -16px rgba(0, 0, 0, 0.55);
+  --pq-r-md: 0;
+  --pq-r-lg: 0;
+  --pq-r-xl: 0;
+  --pixel-outline: #3d2914;
+  --pixel-edge: #9a7d52;
+  --pixel-highlight: #faf6ea;
+  --pixel-shadow: #2a1810;
+  --bg: var(--parchment-dark);
+  --bg2: var(--parchment-mid);
+  --surface: #faf6ea;
+  --surface2: var(--parchment-mid);
+  --border: var(--parchment-edge);
+  --border2: var(--ink-light);
+  --text: var(--ink);
+  --muted: var(--ink-muted);
+}
+
+html {
+  font-size: clamp(19px, 0.4vw + 17px, 22px);
+}
+
+body.pq-body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+body.pq-body::before {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 10, 6, 0.5),
+    rgba(20, 14, 8, 0.65) 40%,
+    rgba(15, 10, 6, 0.78)
+  );
+}
+
+/* Rendu net des sprites — sans cadre automatique */
+.pixel,
+.pq-maps-strip img,
+.pq-loop-icon,
+.pq-roster-img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pq-pixel-chip {
+  border-radius: 0 !important;
+}
+
+#pq-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.pq-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 3px solid var(--pq-gold-d);
+  background: linear-gradient(180deg, #3a2016, #261610);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.pq-header-inner {
+  width: min(96vw, 1320px);
+  max-width: none;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pq-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+  text-decoration: none;
+  color: #f4e8d8;
+}
+
+.pq-brand > span:last-child {
+  min-width: 0;
+}
+
+.pq-brand-book {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  background: url("book/open-book.png") center / contain no-repeat;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.pq-brand-title {
+  font-family: "PQ Display", "Cinzel", serif !important;
+  font-size: 1.85rem !important;
+  line-height: 1 !important;
+  color: var(--pq-gold) !important;
+  text-shadow: 1px 1px 0 #1a0c08 !important;
+}
+
+.pq-brand-sub {
+  font-family: "Inter", system-ui, sans-serif !important;
+  font-size: 0.88rem !important;
+  color: #c4b8a0 !important;
+  margin-top: 0.15rem;
+}
+
+.pq-header-actions {
+  margin-left: auto;
+  display: none;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .pq-header-actions {
+    display: flex;
+  }
+}
+
+.pq-btn-header {
+  font-family: "PQ Pixel", monospace !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1.5rem !important;
+  min-height: 3rem;
+  border-radius: var(--pq-r-md) !important;
+}
+
+.pq-btn-primary.pq-btn-header {
+  color: #fff !important;
+  background: linear-gradient(180deg, #e06060, var(--pq-crimson) 55%, var(--pq-crimson-d)) !important;
+  border: 2px solid #5a1818 !important;
+  box-shadow: 0 4px 14px rgba(120, 30, 30, 0.35) !important;
+}
+
+.pq-btn-ghost.pq-btn-header {
+  color: #f0e6d4 !important;
+  border: 2px solid rgba(232, 184, 74, 0.45) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.pq-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: var(--pq-r-md);
+  border: 2px solid rgba(232, 184, 74, 0.4);
+  color: var(--pq-gold);
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.pq-menu-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .pq-menu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .pq-header-inner {
+    padding: 0.5rem 0.75rem;
+    min-height: 3.5rem;
+  }
+
+  .pq-brand-book {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .pq-brand-title {
+    font-size: 1.15rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pq-brand-sub {
+    display: none;
+  }
+
+  .pq-btn-header {
+    font-size: 0.85rem !important;
+    padding: 0.55rem 0.85rem !important;
+    min-height: 2.5rem;
+  }
+}
+
+/* Drawer mobile (sans dépendre de Tailwind) */
+.pq-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.pq-drawer.is-open {
+  display: block;
+}
+
+.pq-drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.pq-drawer-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: min(18rem, 88vw);
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem 0.85rem 1.5rem;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.35);
+}
+
+.pq-drawer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(232, 184, 74, 0.25);
+}
+
+.pq-drawer-action {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.85rem !important;
+}
+
+body.pq-menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .pq-drawer {
+    display: none !important;
+  }
+}
+
+/* ── Livre centré (parchemin + rail) ── */
+.pq-stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2rem) clamp(0.75rem, 2vw, 1.5rem) 2.5rem;
+}
+
+.pq-book {
+  display: flex;
+  width: min(96vw, 1320px);
+  max-width: none;
+  min-height: min(85vh, 900px);
+  box-shadow: var(--shadow-book);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Rail icônes rouge (comme la capture) */
+.pq-icon-rail {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 3.75rem;
+  flex-shrink: 0;
+  padding: 1rem 0.35rem;
+  background: linear-gradient(180deg, #6b2222, #4a1818 90%);
+  border-right: 2px solid #3a1010;
+}
+
+@media (min-width: 768px) {
+  .pq-icon-rail {
+    display: flex;
+  }
+}
+
+.pq-rail-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  border-radius: 0;
+  border: 2px solid transparent;
+  color: #f5e0d0;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.pq-rail-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.06);
+}
+
+.pq-rail-link.is-active {
+  background: rgba(90, 224, 138, 0.22);
+  color: var(--pq-toxic);
+  border-color: var(--pq-toxic);
+  box-shadow:
+    inset 0 0 0 2px rgba(90, 224, 138, 0.45),
+    2px 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.pq-rail-link.is-active svg.lucide {
+  stroke: var(--pq-toxic);
+}
+
+/* Parchemin */
+.pq-parchment {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.75rem);
+  background: linear-gradient(180deg, #f7f0dc, var(--parchment) 8%, var(--parchment-mid));
+}
+
+#doc-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Typo contenu — plus grande */
+#doc-content h1 {
+  font-family: "PQ Display", "Cinzel", serif !important;
+  font-size: clamp(2rem, 5vw, 2.65rem) !important;
+  color: var(--leather) !important;
+}
+
+#doc-content h2 {
+  font-family: "PQ Display", "Cinzel", serif !important;
+  font-size: clamp(1.35rem, 3vw, 1.65rem) !important;
+  color: var(--leather-mid) !important;
+  margin-top: 2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--parchment-edge);
+}
+
+#doc-content h3 {
+  font-family: "PQ Display", "Cinzel", serif !important;
+  font-size: 1.2rem !important;
+  color: var(--ink) !important;
+}
+
+#doc-content h3.pq-h3-icon svg.lucide {
+  width: 1.35rem !important;
+  height: 1.35rem !important;
+  color: var(--pq-crimson) !important;
+  stroke: var(--pq-crimson) !important;
+}
+
+#doc-content p,
+#doc-content li {
+  font-size: 1.1rem !important;
+  line-height: 1.75 !important;
+  color: var(--ink-muted) !important;
+}
+
+#doc-content strong {
+  color: var(--ink) !important;
+}
+
+#doc-content a:not(.pq-btn):not(.pq-card) {
+  color: var(--leather-mid) !important;
+  font-weight: 600;
+}
+
+#doc-content code {
+  font-family: "PQ Pixel", monospace !important;
+  font-size: 0.95em !important;
+  padding: 0.15em 0.45em;
+  background: rgba(90, 224, 138, 0.15);
+  border-radius: 0;
+  border: 1px solid var(--parchment-edge);
+}
+
+#doc-content kbd {
+  font-family: "PQ Pixel", monospace !important;
+  font-size: 0.95em !important;
+  padding: 0.2em 0.55em;
+  border-radius: 0;
+  border: 2px solid var(--leather-mid);
+  background: linear-gradient(180deg, #fff8e8, var(--parchment-mid));
+}
+
+#doc-content table {
+  font-size: 1rem;
+  border-radius: 0;
+  border: 2px solid var(--parchment-edge);
+  overflow: hidden;
+}
+
+#doc-content thead th {
+  font-family: "PQ Pixel", monospace;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+}
+
+#doc-content tbody td {
+  padding: 0.7rem 1rem;
+}
+
+#doc-content .text-white,
+.pq-card h3 {
+  color: var(--ink) !important;
+}
+
+#doc-content .text-slate-400,
+.pq-card p {
+  color: var(--ink-muted) !important;
+}
+
+.text-cyan-300 {
+  font-family: "PQ Pixel", monospace !important;
+  font-size: 0.88rem !important;
+  color: #2a6a8a !important;
+}
+
+/* Hero */
+.pq-hero {
+  margin: 0 0 2rem;
+  border-radius: 0;
+  border: 2px solid var(--parchment-edge);
+  overflow: hidden;
+}
+
+.pq-hero-body {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.pq-hero-body .flex {
+  justify-content: center;
+}
+
+.pq-hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3rem) !important;
+}
+
+.pq-hero p,
+.pq-hero-lead {
+  font-size: 1.15rem !important;
+  max-width: 36rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.pq-chip {
+  font-family: "PQ Pixel", monospace;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0;
+  border: 2px solid #2a6a48;
+  background: rgba(90, 224, 138, 0.22);
+  color: #1a5038;
+}
+
+.pq-hero .pq-btn {
+  font-family: "PQ Pixel", monospace !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1.35rem !important;
+  border-radius: var(--pq-r-md) !important;
+}
+
+/* Sections accueil centrées */
+.pq-section-center {
+  text-align: center;
+}
+
+.pq-section-center > h2,
+.pq-section-center > p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pq-section-center > p {
+  font-size: 1.08rem !important;
+  max-width: 52rem;
+}
+
+/* Roster — tuiles plus grosses, centrées */
+.pq-roster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.15rem;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.pq-roster-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 7rem;
+  min-height: 8.5rem;
+  padding: 0.75rem 0.5rem;
+  text-decoration: none;
+  border-radius: 0;
+  border: 2px solid var(--parchment-edge);
+  background: linear-gradient(180deg, #faf6ea, var(--parchment-mid));
+  box-shadow: inset 0 0 28px var(--roster-glow, transparent);
+  transition: transform 0.18s, border-color 0.18s;
+}
+
+@media (min-width: 640px) {
+  .pq-roster-item {
+    width: 7.75rem;
+    min-height: 9rem;
+  }
+}
+
+.pq-roster-item:hover {
+  border-color: var(--pq-gold-d);
+  transform: translateY(-4px);
+}
+
+.pq-roster-img {
+  width: 4.25rem;
+  height: 4.25rem;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+@media (min-width: 640px) {
+  .pq-roster-img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.pq-roster-name {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* Cartes sommaire — pleine largeur du parchemin */
+.pq-section-center > .grid,
+.pq-explorer-grid {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.pq-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.35rem 1.5rem !important;
+  border-radius: 0 !important;
+  border: 2px solid var(--parchment-edge) !important;
+  background: linear-gradient(180deg, #faf6ea, var(--parchment-mid)) !important;
+  box-shadow: none !important;
+}
+
+/* Bandeau cartes du jeu */
+.pq-maps-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.pq-maps-strip a {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.pq-maps-strip a:hover {
+  transform: translateY(-4px);
+}
+
+.pq-map-thumb {
+  display: grid;
+  place-items: center;
+  width: 7.5rem;
+  height: 7.5rem;
+  border: 2px solid var(--parchment-edge);
+  background: var(--parchment-mid);
+}
+
+.pq-map-thumb img {
+  display: block;
+  width: auto;
+  height: 5.5rem;
+  max-width: 90%;
+  object-fit: contain;
+}
+
+.pq-map-label {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "PQ Pixel", monospace;
+  font-size: 0.78rem;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Boucle de jeu — puces pixel */
+.pq-game-loop {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.pq-game-loop li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  border: 2px solid var(--parchment-edge);
+  border-left: 4px solid var(--pq-crimson);
+  background: rgba(250, 246, 234, 0.7);
+}
+
+.pq-loop-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.pq-card h3 {
+  font-size: 1.15rem !important;
+}
+
+.pq-card p {
+  font-size: 1rem !important;
+  margin-top: 0.35rem !important;
+}
+
+.pq-card-h:hover {
+  transform: translateY(-3px);
+  border-color: var(--pq-gold-d) !important;
+}
+
+/* Unités page */
+#pq-root .grid.h-24.w-24 {
+  width: 7rem !important;
+  height: 7rem !important;
+}
+
+#pq-root .grid.h-24.w-24 .pixel.h-20 {
+  width: 5.5rem !important;
+  height: 5.5rem !important;
+}
+
+.pq-footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--parchment-edge);
+  text-align: center;
+  font-family: "PQ Pixel", monospace;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+}
+
+/* Drawer mobile */
+#pq-drawer .pq-drawer-panel {
+  background: linear-gradient(180deg, #3d2218, #1a0e08) !important;
+  border-right: 3px solid var(--pq-gold-d) !important;
+}
+
+#pq-drawer .pq-drawer-actions .pq-btn-primary {
+  color: #fff !important;
+}
+
+#pq-drawer .nav-link {
+  font-size: 1.05rem !important;
+  min-height: 3rem;
+  padding: 0.8rem 1rem !important;
+  color: #d4c4a8 !important;
+}
+
+#pq-drawer .nav-link.active {
+  color: var(--pq-gold) !important;
+}
+
+#pq-drawer .pq-nav-group-title {
+  color: var(--pq-gold-d) !important;
+  font-size: 0.85rem;
+}
+
+/* Mobile : pas de rail, livre pleine largeur */
+@media (max-width: 767px) {
+  .pq-book {
+    border-radius: 0;
+  }
+
+  .pq-parchment {
+    padding: 1.35rem 1.15rem 2rem;
+  }
+}
+
+/* Anciens blocs masqués */
+.pq-sidebar,
+.pq-layout,
+.pq-main,
+.pq-bookmarks,
+.pq-book-stage,
+.pq-page {
+  display: none !important;
+}
+
+.pq-btn,
+#doc-content .pq-btn {
+  border-radius: 0 !important;
+}
+
+.pq-btn-header,
+.pq-menu-toggle {
+  border-radius: 0 !important;
+}
+
+/* Grands écrans : 1080p, 1440p — utiliser la largeur disponible */
+@media (min-width: 900px) {
+  .pq-explorer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .pq-explorer-grid > a:last-child {
+    grid-column: span 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pq-stage {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .pq-parchment {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .pq-icon-rail {
+    width: 4.25rem;
+    padding: 1.25rem 0.5rem;
+  }
+
+  .pq-roster {
+    gap: 1.15rem 1.35rem;
+  }
+
+  .pq-roster-item {
+    width: 8.5rem;
+    min-height: 9.5rem;
+  }
+
+  .pq-roster-img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .pq-hero p {
+    max-width: 42rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .pq-book,
+  .pq-header-inner {
+    width: min(92vw, 1400px);
+  }
+
+  .pq-explorer-grid > a:last-child {
+    grid-column: span 1;
+  }
+
+  .pq-explorer-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}

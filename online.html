@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeu en ligne & connexion — Power Quest</title>
+  <meta name="description" content="Jouer à Power Quest en ligne : créer un compte, se connecter, rejoindre une partie classée jusqu'à 8 joueurs, profil et classement." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body data-page="online" class="antialiased">
+  <template id="doc">
+    <p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Multijoueur</p>
+    <h1>Jeu en ligne & connexion</h1>
+    <p>Power Quest dispose d'un mode <strong>multijoueur classé</strong> jusqu'à 8 joueurs, avec comptes, profils, statistiques et classement. Cette page explique comment créer un compte, se connecter et rejoindre une partie.</p>
+
+    <h2>Créer un compte</h2>
+    <p>Depuis le menu (le grand livre), ouvrez l'onglet <strong>Profil</strong>. Si vous n'êtes pas connecté, l'écran de connexion s'affiche. Choisissez <strong>S'inscrire</strong> et renseignez :</p>
+    <ul>
+      <li><strong>Nom d'utilisateur</strong> — 3 à 20 caractères (lettres, chiffres, underscore).</li>
+      <li><strong>Email</strong>.</li>
+      <li><strong>Mot de passe</strong> — 6 à 128 caractères.</li>
+    </ul>
+    <p>Votre session est ensuite enregistrée : à la prochaine ouverture, vous êtes reconnecté automatiquement.</p>
+
+    <h2>Se connecter</h2>
+    <ol>
+      <li>Ouvrez l'onglet <strong>Profil</strong> du menu.</li>
+      <li>Entrez votre <strong>email</strong> et votre <strong>mot de passe</strong>, puis validez.</li>
+      <li>Vous arrivez sur votre profil : niveau, victoires, ratio de victoires (winrate) et temps de jeu.</li>
+    </ol>
+    <p>Le bouton <strong>Déconnexion</strong> efface la session enregistrée sur l'appareil.</p>
+
+    <h2>Profil, classement & historique</h2>
+    <ul>
+      <li><strong>Profil</strong> — nom, niveau, nombre de victoires, winrate %, temps de jeu.</li>
+      <li><strong>10 dernières parties</strong> — suite d'icônes Victoire / Défaite.</li>
+      <li><strong>Classement</strong> — top des joueurs trié par nombre de victoires.</li>
+    </ul>
+    <p>Vos résultats sont envoyés au serveur à la fin de chaque partie et mettent à jour automatiquement profil, historique et classement.</p>
+
+    <h2>Rejoindre une partie</h2>
+    <ol>
+      <li>Ouvrez l'onglet <strong>Multijoueur</strong> du menu (connexion requise — connexion automatique si vous avez déjà un compte enregistré).</li>
+      <li>Cliquez sur <strong>Rejoindre</strong> : vous entrez dans la file d'attente classée.</li>
+      <li>Patientez : le statut affiche le nombre de joueurs présents.
+        <ul>
+          <li>Il faut au minimum <strong>2 joueurs</strong> pour démarrer.</li>
+          <li>Après le 2ᵉ joueur, une fenêtre de <strong>5 secondes</strong> laisse d'autres joueurs rejoindre.</li>
+          <li>À <strong>8 joueurs</strong>, la partie démarre immédiatement.</li>
+        </ul>
+      </li>
+      <li>Une fois la partie trouvée, le jeu se connecte au serveur et charge une carte tirée au sort (1, 2 ou 3).</li>
+      <li>Vous démarrez avec <strong>2 sites</strong> (1 camp terrestre + 1 site aléatoire) ; les autres sont neutres.</li>
+    </ol>
+    <p>Pour annuler la recherche, recliquez sur le bouton (devenu <strong>Annuler</strong>) ou quittez l'onglet Multijoueur.</p>
+
+    <h2>Comment se déroule une partie en ligne</h2>
+    <p>Le multijoueur fonctionne en relais serveur : vous donnez des ordres à vos unités localement, et le serveur valide la propriété de vos sites puis diffuse les actions aux autres joueurs.</p>
+    <ul>
+      <li>Apparition d'unités, ordres de déplacement et d'attaque sont synchronisés en continu.</li>
+      <li>Les positions sont mises à jour environ <strong>8 fois par seconde</strong> ; l'or du tableau des scores toutes les secondes.</li>
+      <li>Si un joueur se déconnecte, ses sites redeviennent neutres et ses unités disparaissent.</li>
+      <li>Le mode supporte <strong>2 à 8 joueurs</strong> (fonctionne donc parfaitement en 1 contre 1).</li>
+    </ul>
+
+    <h2>Détails techniques</h2>
+    <table>
+      <thead><tr><th>Élément</th><th>Détail</th></tr></thead>
+      <tbody>
+        <tr><td>Comptes & méta-jeu</td><td>Serveur Nakama (authentification email)</td></tr>
+        <tr><td>Partie en direct</td><td>Serveur de jeu dédié via WebSocket</td></tr>
+        <tr><td>Joueurs par partie</td><td>2 à 8</td></tr>
+        <tr><td>Cartes en ligne</td><td>Tirage aléatoire parmi les 3 cartes</td></tr>
+        <tr><td>Sites de départ</td><td>2 par joueur, le reste neutre</td></tr>
+      </tbody>
+    </table>
+
+    <div class="mt-6 rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-4">
+      <p class="!mt-0 text-sm text-cyan-100/90"><strong>Problème de connexion ?</strong> Vérifiez votre connexion internet, vos identifiants, et réessayez de vous connecter depuis l'onglet Profil. La session se ré-établit automatiquement si vos identifiants sont enregistrés.</p>
+    </div>
+  </template>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+  <script src="assets/pages.js"></script>
+</body>
+</html>
