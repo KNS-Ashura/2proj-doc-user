@@ -1022,7 +1022,7 @@
 
       position:absolute; inset:0;
 
-      opacity:.35;
+      opacity:1;
 
     }
 
@@ -1032,7 +1032,11 @@
 
       object-fit:cover;
 
-      object-position:center;
+      object-position:center center;
+
+      image-rendering:pixelated;
+
+      image-rendering:crisp-edges;
 
     }
 
@@ -1040,7 +1044,7 @@
 
       position:absolute; inset:0;
 
-      background:linear-gradient(105deg, rgba(245,237,216,.92) 0%, rgba(235,226,204,.78) 45%, rgba(227,214,184,.55) 100%);
+      background:linear-gradient(180deg, rgba(247,240,220,.82) 0%, rgba(235,226,204,.62) 45%, rgba(227,214,184,.72) 100%);
 
     }
 

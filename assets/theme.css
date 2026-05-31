@@ -459,9 +459,36 @@ body.pq-menu-open {
   border-radius: 0;
   border: 2px solid var(--parchment-edge);
   overflow: hidden;
+  position: relative;
+  min-height: 14rem;
+}
+
+.pq-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.pq-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pq-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 240, 220, 0.82) 0%,
+    rgba(235, 226, 204, 0.62) 45%,
+    rgba(227, 214, 184, 0.72) 100%
+  );
 }
 
 .pq-hero-body {
+  position: relative;
+  z-index: 1;
   text-align: center;
   padding: 0.5rem 0;
 }
